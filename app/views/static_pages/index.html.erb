@@ -34,9 +34,11 @@
 
   <div class="row">
 
-    <div class="col-6 offset-3 button-box">
-      Request an item
-    </div>
+    <%= link_to new_request_path, class: 'col-6 offset-3' do %>
+      <div class="button-box">
+        Request an item
+      </div>
+    <% end %>
   </div>
 
 <% else %>
@@ -47,9 +49,25 @@
 
   <div class="row">
 
-    <div class="col-6 offset-3 button-box">
-      Create an account
-    </div>
+     <div class="col-1"></div>
+
+    <%= link_to new_user_session_path, class: 'col-4' do %>
+      <div class="button-box">
+        Returning for more research?
+        Login!
+      </div>
+    <% end %>
+
+    <div class="col-2"></div>
+
+    <%= link_to new_user_registration_path, class: 'col-4' do %>
+      <div class="button-box">
+        New to Special Collections?
+        Create an account!
+      </div>
+    <% end %>
+
+    <div class="col-1"></div>
   </div>
 
 <% end %>
