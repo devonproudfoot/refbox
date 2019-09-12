@@ -1,20 +1,43 @@
 <br />
-<div>
-  <% @requests.each do |request| %>
-    <div class="col-10 offset-1 request-box">
-      <p><%= link_to request.id, request_path(request) %></p>
-      <div class="row">
-        <div class="col-3">
-          <%= request.identifier %>
+<div class="row">
+  <div class="col-2 facets">
+    Facets
+    <ul>
+      <li>
+        Item 1
+      </li>
+      <li>
+        Item 2
+      </li>
+      <li>
+        Item 3
+      </li>
+      <li>
+        Item 4
+      </li>
+      <li>
+        Item 5
+      </li>
+    </ul>
+  </div>
+  <div class="col-9 offset-1">
+    <% @requests.each do |request| %>
+      <div class="request-box">
+        <p><%= link_to request.id, request_path(request) %></p>
+        <div class="row">
+          <div class="col-3">
+            <%= request.identifier %>
+          </div>
+          <div class="col-3">
+            <%= request.title %>
+          </div>
+          <div class="col-3">
+            <%= request.item_number %>
+          </div>
         </div>
-        <div class="col-3">
-          <%= request.title %>
-        </div>
-        <div class="col-3">
-          <%= request.item_number %>
-        </div>
+        <br />
+        <p><b>Status: </b><%= request.status %></p>
       </div>
-      <p><b>Status: </b><%= request.status %></p>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
