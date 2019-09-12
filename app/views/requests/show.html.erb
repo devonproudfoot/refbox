@@ -1,6 +1,6 @@
 <br />
 <div class="col-10 offset-1">
-  <h1>You requested</h1>
+  <h1>Request <%= @request.id %></h1>
   <br />
   <p><%= @request.identifier %></p>
   <% if @request.title %>
@@ -13,6 +13,7 @@
     <p>Box <%= @request.item_number %></p>
   <% end %>
   <p><i>Requested on <%= @request.created_at.strftime("%A %B %d %Y at %I:%M %p") %></i></p>
+  <p>Rquested by <%= link_to @request.user.email, '#' %></p>
   <br />
   <% if current_user.spco_staff %>
     <button class="float-right btn btn-primary">Edit</button>
