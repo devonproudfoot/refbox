@@ -1,0 +1,11 @@
+<br />
+<div>
+  <% @requests.each do |request| %>
+    <div class="col-10 offset-1 request-box">
+      <p><%= link_to request.id, request_path(request) %></p>
+      <p><%= request.identifier %></p>
+      <p><%= request.title %></p>
+      <p><%= request.item_number %></p>
+    </div>
+  <% end %>
+</div>
