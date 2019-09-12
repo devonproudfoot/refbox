@@ -1,5 +1,9 @@
 @import "bootstrap";
 
+.navbar {
+  box-shadow: 0 3px 2px -2px black;
+}
+
 .button-box {
   text-align: center;
   background-color: #0064b1;
@@ -10,7 +14,7 @@
   height: 150px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.15);
   font-size: 2em;
-
+  box-shadow: 3px 3px 3px 3px #ccc;
 }
 
 .button-box:hover {
@@ -28,6 +32,8 @@
   padding-left: 15px;
   padding-bottom: 5px;
   padding-top: 5px;
+  box-shadow: 3px 3px 3px 3px #ccc;
+
 }
 
 .facets {
