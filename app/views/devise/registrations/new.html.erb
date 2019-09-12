@@ -18,7 +18,15 @@
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
       <br />
-      <%= f.input :phone_number %>
+      <div class="row">
+        <div class="col-6">
+          <%= f.input :first_name %>
+        </div>
+        <div class="col-6">
+          <%= f.input :last_name %>
+        </div>
+      </div>
+      <%= f.input :phone_number, type: 'tel' %>
       <%= f.input :uta_affiliation, label: 'What is your affiliation with the University of Texas at Arlington?', as: :select, collection: User::AFFILIATIONS %>
     </div>
     <br />
@@ -31,3 +39,4 @@
 
   <%= render "devise/shared/links" %>
 </div>
+<br />

@@ -1,4 +1,51 @@
 <br />
-<div class='col-10 offset-1'>
-  <h1>Today is a great day to do some research</h1>
-</div>
+<% if current_user && current_user.spco_staff %>
+  <div class='col-10 offset-1'>
+    <h1>Today is a great day to help some researchers</h1>
+    <br />
+  </div>
+
+  <div class="row">
+    <div class="col-1"></div>
+
+    <div class="col-4 button-box">
+      Work on a request
+    </div>
+    <div class="col-2"></div>
+
+    <%= link_to
+      <div class="col-4 button-box">
+        Request an item
+      </div>
+
+    <div class="col-1"></div>
+
+  </div>
+
+<% elsif current_user %>
+  <div class='col-10 offset-1'>
+    <h1>Today is a great day to do some research</h1>
+    <br />
+  </div>
+
+  <div class="row">
+
+    <div class="col-6 offset-3 button-box">
+      Request an item
+    </div>
+  </div>
+
+<% else %>
+  <div class='col-10 offset-1'>
+    <h1>Today is a great day to do some research</h1>
+    <br />
+  </div>
+
+  <div class="row">
+
+    <div class="col-6 offset-3 button-box">
+      Create an account
+    </div>
+  </div>
+
+<% end %>
