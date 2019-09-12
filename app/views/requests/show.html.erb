@@ -1,0 +1,22 @@
+<br />
+<div class="col-10 offset-1">
+  <h1>You requested</h1>
+  <br />
+  <p><%= @request.identifier %></p>
+  <% if @request.title %>
+    <p><%= @request.title %></p>
+  <% end %>
+  <% if @request.creator %>
+    <p><%= @request.creator %></p>
+  <% end %>  
+  <% if @request.item_number %>
+    <p>Box <%= @request.item_number %></p>
+  <% end %>
+  <p><i>Requested on <%= @request.created_at.strftime("%A %B %d %Y at %I:%M %p") %></i></p>
+  <br />
+  <% if current_user.spco_staff %>
+    <button class="float-right btn btn-primary">Edit</button>
+  <% else %>
+    <span class="float-right badge badge-primary">Please contact a staff member if you need to edit your request!</span>
+  <% end %>
+</div>

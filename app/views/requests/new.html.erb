@@ -1,4 +1,13 @@
 <br />
 <div class="col-10 offset-1">
-  NEW
+  <h1>Request an item</h1>
+  <br />
+  <%= simple_form_for @request, url: requests_path do |f| %>
+    <%= f.input :identifier %>
+    <%= f.input :title %>
+    <%= f.input :creator %>
+    <%= f.input :item_number %>
+    <br />
+    <%= f.submit "Request", class: 'btn btn-primary' %>
+  <% end %>
 </div>
