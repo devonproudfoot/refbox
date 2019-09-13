@@ -13,6 +13,9 @@ class Staff::RequestsController < ApplicationController
   def update
     current_request.update_attributes(request_params)
     redirect_to current_request 
+    flash[:notice] = "Update completed!"
+
+    #need to validate updates!
   end
 
 end
