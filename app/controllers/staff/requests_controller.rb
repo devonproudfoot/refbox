@@ -12,7 +12,7 @@ class Staff::RequestsController < ApplicationController
 
   def update
     current_request.update_attributes(request_params)
-    # not updating?
+    redirect_to current_request 
   end
 
 end

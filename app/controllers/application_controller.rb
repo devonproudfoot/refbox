@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def request_params
-    params.require(:request).permit(:identifier, :title, :creator, :item_number)
+    params.require(:request).permit(:identifier, :title, :creator, :item_number, :status)
   end
 
   def authenticate_staff
