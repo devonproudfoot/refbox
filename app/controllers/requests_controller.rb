@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show]
+  helper_method :current_request
 
   def new
     @request = Request.new
@@ -18,6 +19,5 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find_by_id(params[:id])
   end
 end

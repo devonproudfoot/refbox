@@ -1,22 +1,22 @@
 <br />
 <div class="col-10 offset-1">
-  <h1>Request <%= @request.id %></h1>
+  <h1>Request <%= current_request.id %></h1>
   <br />
-  <p><%= @request.identifier %></p>
-  <% if @request.title %>
-    <p><%= @request.title %></p>
+  <p><%= current_request.identifier %></p>
+  <% if current_request.title %>
+    <p><%= current_request.title %></p>
   <% end %>
-  <% if @request.creator %>
-    <p><%= @request.creator %></p>
+  <% if current_request.creator %>
+    <p><%= current_request.creator %></p>
   <% end %>  
-  <% if @request.item_number %>
-    <p>Box <%= @request.item_number %></p>
+  <% if current_request.item_number %>
+    <p>Box <%= current_request.item_number %></p>
   <% end %>
-  <p><i>Requested on <%= @request.created_at.strftime("%A %B %d %Y at %I:%M %p") %></i></p>
-  <p>Requested by <%= link_to @request.user.email, '#' %></p>
+  <p><i>Requested on <%= current_request.created_at.strftime("%A %B %d %Y at %I:%M %p") %></i></p>
+  <p>Requested by <%= link_to current_request.user.email, '#' %></p>
   <br />
   <% if current_user.spco_staff %>
-  <%= link_to "Update request", edit_staff_request_path(@request), class: 'btn btn-primary float-right' %>
+  <%= link_to "Update request", edit_staff_request_path(current_request), class: 'btn btn-primary float-right' %>
   <% else %>
     <span class="float-right badge badge-primary">Please contact a staff member if you need to edit your request!</span>
   <% end %>

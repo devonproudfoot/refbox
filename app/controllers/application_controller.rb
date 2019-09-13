@@ -2,8 +2,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-  
-  
+  def current_request
+    @request = Request.find_by_id(params[:id])
+  end
+
   def request_params
     params.require(:request).permit(:identifier, :title, :creator, :item_number)
   end

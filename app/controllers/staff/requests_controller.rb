@@ -15,10 +15,4 @@ class Staff::RequestsController < ApplicationController
     # not updating?
   end
 
-  private
-
-  def current_request
-    @request ||= Request.find_by_id(params[:id])
-  end
-
 end
