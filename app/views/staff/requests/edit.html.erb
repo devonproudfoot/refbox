@@ -1,0 +1,14 @@
+<br />
+<div class="col-10 offset-1">
+  <h1>Update Request</h1>
+  <br />
+  <%= simple_form_for current_request do |f| %>
+    <%= f.input :identifier %>
+    <%= f.input :title %>
+    <%= f.input :creator %>
+    <%= f.input :item_number %>
+    <%= f.input :status, as: :select, collection: Request::STATUSES %>
+    <br />
+    <%= f.submit "Update", class: 'btn btn-primary' %>
+  <% end %>
+</div>

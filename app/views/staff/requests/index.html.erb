@@ -23,20 +23,33 @@
   <div class="col-9 offset-1">
     <% @requests.each do |request| %>
       <div class="request-box">
-        <p><%= link_to request.id, request_path(request) %></p>
         <div class="row">
-          <div class="col-3">
-            <%= request.identifier %>
+          <p class="col-4"><%= link_to request.id, request_path(request) %></p>
+          <%= link_to 'Update Request', edit_staff_request_path(request), class: 'btn btn-primary' %>
+        </div>
+        <hr></hr>
+        <div class="row">
+          <div class="col-3 offset-1">
+            <p><%= request.identifier %></p>
           </div>
           <div class="col-3">
-            <%= request.title %>
+            <p><%= request.title %></p>
           </div>
           <div class="col-3">
-            <%= request.item_number %>
+            <p>Item Number: <%= request.item_number %></p>
           </div>
         </div>
-        <br />
-        <p><b>Status: </b><%= request.status %></p>
+        <div class="row">
+          <div class="col-3 offset-1">
+            <p><b>Status: </b><%= request.status %></p>
+          </div>
+          <div class="col-3">
+            <p>Request created: <%= request.created_at.strftime("%m/%d/%Y") %></p>
+          </div>
+          <div class="col-3">
+            <p>Request edited: <%= request.updated_at.strftime("%m/%d/%Y") %></p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

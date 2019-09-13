@@ -20,11 +20,4 @@ class RequestsController < ApplicationController
   def show
     @request = Request.find_by_id(params[:id])
   end
-
-  private
-
-  def request_params
-    params.require(:request).permit(:identifier, :title, :creator, :item_number)
-  end
-
 end

@@ -13,10 +13,10 @@
     <p>Box <%= @request.item_number %></p>
   <% end %>
   <p><i>Requested on <%= @request.created_at.strftime("%A %B %d %Y at %I:%M %p") %></i></p>
-  <p>Rquested by <%= link_to @request.user.email, '#' %></p>
+  <p>Requested by <%= link_to @request.user.email, '#' %></p>
   <br />
   <% if current_user.spco_staff %>
-    <button class="float-right btn btn-primary">Edit</button>
+  <%= link_to "Update request", edit_staff_request_path(@request), class: 'btn btn-primary float-right' %>
   <% else %>
     <span class="float-right badge badge-primary">Please contact a staff member if you need to edit your request!</span>
   <% end %>
