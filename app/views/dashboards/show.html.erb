@@ -1,0 +1,13 @@
+<br />
+<div class="col-10 offset-1">
+  <h1>Welcome to your dashboard</h1>
+  <hr />
+  <div class="request-box">
+    <p><%= current_user.email %></p>
+    <p>First Name</p>
+    <p>Last Name</p>
+    <p>Address</p>
+    <%= link_to "Edit your account", edit_user_registration_path, class: 'btn btn-primary float-right' %>
+    <p>Active</p>
+  </div>
+</div>
