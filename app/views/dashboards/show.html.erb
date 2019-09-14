@@ -1,13 +1,58 @@
 <br />
 <div class="col-10 offset-1">
   <h1>Welcome to your dashboard</h1>
-  <hr />
-  <div class="request-box">
+  <br />
+  <div>
     <p><%= current_user.email %></p>
     <p>First Name</p>
     <p>Last Name</p>
     <p>Address</p>
     <%= link_to "Edit your account", edit_user_registration_path, class: 'btn btn-primary float-right' %>
-    <p>Active</p>
   </div>
+  <br /><br /><hr />
+  <% if current_user.requests.count > 0 %>
+    <h3>Open Requests</h3>
+    <% current_user.requests.each do |request| %>
+      <% if request.status != 'Completed' %>
+        <div class="request-box">
+          <div class="row">
+            <p class="col-4"><%= link_to request.id, request_path(request) %></p>
+            
+            <% if current_user.spco_staff %>
+              <%= link_to 'Update Request', edit_staff_request_path(request), class: 'btn btn-primary' %>
+            <% end %>
+
+
+          </div>
+          <hr></hr>
+          <div class="row">
+            <div class="col-3 offset-1">
+              <p><%= request.identifier %></p>
+            </div>
+            <div class="col-3">
+              <p><%= request.title %></p>
+            </div>
+            <div class="col-3">
+              <p>Item Number: <%= request.item_number %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 offset-1">
+              <p><b>Status: </b><%= request.status %></p>
+            </div>
+            <div class="col-3">
+              <p>Request created: <%= request.created_at.strftime("%m/%d/%Y") %></p>
+            </div>
+            <div class="col-3">
+              <p>Request edited: <%= request.updated_at.strftime("%m/%d/%Y") %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% else %>
+    <h3>You have not requested any materials!</h3>
+    <p>Want to change that? <%= link_to "Reqest material", new_request_path %></p>
+  <% end %>
 </div>
