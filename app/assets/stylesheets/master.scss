@@ -1,3 +1,4 @@
+$primary: #0064b1;
 @import "bootstrap";
 
 .navbar {
@@ -6,6 +7,7 @@
 
 .button-box {
   text-align: center;
+  background: url('noise.png');
   background-color: #0064b1;
   border-radius: 10px;
   color: white;
