@@ -4,7 +4,7 @@ class Staff::RequestsController < ApplicationController
   helper_method :current_request
 
   def index
-    @requests = Request.all
+    @requests = Request.all.paginate(page: params[:page], per_page: 10)
   end
 
   def edit

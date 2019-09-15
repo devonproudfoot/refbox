@@ -1,26 +1,6 @@
 <br />
 <div class="row">
-  <div class="col-2 facets">
-    Facets
-    <ul>
-      <li>
-        Item 1
-      </li>
-      <li>
-        Item 2
-      </li>
-      <li>
-        Item 3
-      </li>
-      <li>
-        Item 4
-      </li>
-      <li>
-        Item 5
-      </li>
-    </ul>
-  </div>
-  <div class="col-9 offset-1">
+  <div class="col-10 offset-1">
     <% @requests.each do |request| %>
       <div class="request-box">
         <div class="row">
@@ -52,5 +32,14 @@
         </div>
       </div>
     <% end %>
+
+    <!-- pagination helper --->
+
+    <div class="center">
+      <div class="block">
+        <%= will_paginate @requests, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+      </div>
+    </div>
+
   </div>
 </div>
