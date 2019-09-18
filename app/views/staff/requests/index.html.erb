@@ -1,4 +1,6 @@
 <br />
+<%= link_to 'Export Requests', staff_requests_path + '.csv', class: 'btn btn-primary' %>
+<br /><br />
 <div class="row">
   <div class="col-10 offset-1">
     <% @requests.each do |request| %>

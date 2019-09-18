@@ -5,6 +5,11 @@ class Staff::RequestsController < ApplicationController
 
   def index
     @requests = Request.all.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @requests.to_csv, filename: "requests.csv"}
+    end
   end
 
   def edit
