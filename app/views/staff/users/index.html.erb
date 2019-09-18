@@ -1,0 +1,11 @@
+<br />
+<div class="row">
+  <div class="col-10 offset-1">
+    <% @users.each do |user| %>
+      <div class="request-box">
+        <%= link_to user.id, staff_user_path(user) %>
+        <%= user.email %>
+      </div>
+    <% end %>
+  </div>
+</div>

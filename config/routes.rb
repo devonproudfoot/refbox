@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :staff do
     resources :requests, only: [:edit, :update, :index]
+    resources :users, only: [:show, :index]
   end
 
 end
