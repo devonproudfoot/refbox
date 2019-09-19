@@ -7,16 +7,17 @@ class Request < ApplicationRecord
   validates :identifier, presence: true
   validates :item_number, presence: true
 
-  def self.to_csv
-    header = ['request_id', 'spco_id', 'title', 'item_number', 'status', 'user_id']
+  def self.export_requests(params=nil)
+    header = ['request_id', 'spco_id', 'title', 'item_number', 'user_id']
+    rows = []
 
-    CSV.generate(headers: true) do |csv|
-      csv<<header
-
-      all.each do |request|
-        csv<<[request.id, request.identifier, request.title, request.item_number, request.status, request.user.email]
+    all.each do |request|
+      if request.status == 'Completed'
+        rows<<[request.id, request.identifier, request.title, request.item_number, request.user.email]
       end
     end
+
+    ApplicationRecord.create_csv(header, rows)
   end
 
 end

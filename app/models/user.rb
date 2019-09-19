@@ -8,4 +8,16 @@ class User < ApplicationRecord
   has_many :requests
 
   AFFILIATIONS = ['None', 'Student', 'Staff', 'Faculty', 'Alumni' ]
+
+  def self.export_users
+    header = ['id', 'email']
+    rows = []
+
+    all.each do |user|
+
+    end
+
+    ApplicationRecord.create_csv(header, rows)
+  end
+
 end
