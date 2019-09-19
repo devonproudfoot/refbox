@@ -1,0 +1,12 @@
+<br />
+<h1>Generate Reports</h1>
+<br />
+<% ['Users', 'Requests'].each do |data| %>
+  <div class="col-10 offset-1">
+    <h3><%= data %></h3>
+    <br />
+    <%= link_to 'Create Report', 'staff_' + data.downcase + '_path.csv', class: 'btn btn-primary' %>
+    <br /><br />
+  </div>
+
+<% end %>
