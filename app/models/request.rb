@@ -8,13 +8,13 @@ class Request < ApplicationRecord
   validates :item_number, presence: true
 
   def self.to_csv
-    attributes = ['id', 'identifier', 'title', 'item_number', 'status']
+    header = ['request_id', 'spco_id', 'title', 'item_number', 'status', 'user_id']
 
     CSV.generate(headers: true) do |csv|
-      csv<<attributes
+      csv<<header
 
       all.each do |request|
-        csv<<request.attributes.values_at(*attributes)
+        csv<<[request.id, request.identifier, request.title, request.item_number, request.status, request.user.email]
       end
     end
   end

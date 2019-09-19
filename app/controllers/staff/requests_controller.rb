@@ -8,7 +8,7 @@ class Staff::RequestsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @requests.to_csv, filename: "requests.csv"}
+      format.csv { send_data @requests.to_csv, filename: "requests-#{Date.today.strftime('%Y%d%m')}.csv"}
     end
   end
 
