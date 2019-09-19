@@ -9,12 +9,12 @@ class User < ApplicationRecord
 
   AFFILIATIONS = ['None', 'Student', 'Staff', 'Faculty', 'Alumni' ]
 
-  def self.export_users
+  def self.export_users(parameter=nil)
     header = ['id', 'email']
     rows = []
 
     all.each do |user|
-
+      rows<<[user.id, user.email]
     end
 
     ApplicationRecord.create_csv(header, rows)

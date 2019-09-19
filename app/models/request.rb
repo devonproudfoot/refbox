@@ -7,7 +7,7 @@ class Request < ApplicationRecord
   validates :identifier, presence: true
   validates :item_number, presence: true
 
-  def self.export_requests(params=nil)
+  def self.export_requests(parameter=nil)
     header = ['request_id', 'spco_id', 'title', 'item_number', 'user_id']
     rows = []
 

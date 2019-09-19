@@ -4,6 +4,11 @@ class Staff::UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.export_users, filename: "users-#{Date.today.strftime('%Y%d%m')}.csv"}
+    end
   end
 
   def show
