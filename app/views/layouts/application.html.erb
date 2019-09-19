@@ -62,10 +62,10 @@
   </div>
 </nav>
     <% if notice.present? %>
-      <p class="notice"><%= notice %></p>
+      <p class="alert alert-primary"><%= notice %></p>
     <% end %>
     <% if alert.present? %>
-      <p class="alert"><%= alert %></p>
+      <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
     <%= yield %>
