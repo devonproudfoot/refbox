@@ -13,10 +13,12 @@ class Staff::RequestsController < ApplicationController
   end
 
   def edit
+    return render_not_found if current_request.blank?
   end
 
   def update
     current_request.update_attributes(request_params)
+    return render_not_found if current_request.blank?
     redirect_to current_request 
     flash[:notice] = "Update completed!"
 

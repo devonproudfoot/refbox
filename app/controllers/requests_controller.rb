@@ -19,5 +19,6 @@ class RequestsController < ApplicationController
   end
 
   def show
+    return render_not_found if current_request.blank?
   end
 end

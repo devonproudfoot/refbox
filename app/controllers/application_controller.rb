@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
       render plain: 'Unauthorized', status: :unauthorized
     end
   end
+
+  def render_not_found
+    return render plain: "Item not found!", status: :not_found
+  end
 end

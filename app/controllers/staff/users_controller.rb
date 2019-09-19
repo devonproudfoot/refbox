@@ -13,6 +13,7 @@ class Staff::UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    render_not_found if @user.blank?
   end
 
 end
