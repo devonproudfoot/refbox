@@ -1,22 +1,37 @@
 <br />
 
-<%= form_with(url: staff_requests_path, method: "get", class: 'col-10 offset-1', local: true) do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-
-  <%= radio_button_tag(:search_type, "identifier") %>
-  <%= label_tag(:search_type_identifier, "Identifier") %>
-  <%= radio_button_tag(:search_type, "creator") %>
-  <%= label_tag(:search_type_creator, "Creator") %>
-  <%= radio_button_tag(:search_type, "title") %>
-  <%= label_tag(:search_type_title, "Title") %>
-  <%= submit_tag("Search", class: 'btn btn-primary') %>
-<% end %>
-
-<br />
+<div class="col-10 offset-1">
+  <%= form_with(url: staff_requests_path, method: "get", local: true) do %>
+    <%= text_field_tag(:q, '', class: 'form-control') %>
+    <br />
+    <%= radio_button_tag(:search_type, "identifier") %>
+    <%= label_tag(:search_type_identifier, "Identifier") %>
+    <%= radio_button_tag(:search_type, "creator") %>
+    <%= label_tag(:search_type_creator, "Creator") %>
+    <%= radio_button_tag(:search_type, "title") %>
+    <%= label_tag(:search_type_title, "Title") %>
+    <%= submit_tag("Search", class: 'btn btn-primary float-right') %>
+  <% end %>
+</div>
+<hr />
 
 <div class="row">
-  <div class="col-10 offset-1">
+
+  <div class="col-10 offset-1 col-md-2">
+    <h3>Facets</h3><br />
+    <%= form_with(url: staff_requests_path, method: 'get', local: true) do %>
+      <%= label_tag(:search_type, 'status') %>
+      <% Request::STATUSES.each do |status| %>
+        <%= radio_button_tag(:q, status) %>
+        <%= label_tag(:q_status, status) %><br />
+      <% end %>
+      <%= submit_tag("Facet", class: 'btn btn-primary') %>
+    <% end %>
+  </div>
+
+
+
+  <div class="col-10 offset-1 col-md-8">
     <% @requests.each do |request| %>
       <div class="request-box">
         <div class="row">

@@ -4,7 +4,7 @@ class Staff::RequestsController < ApplicationController
   helper_method :current_request
 
   def index
-    if params[:search_type]
+    if params[:commit]
       gather_requests = Request.where({params[:search_type] => params[:q]})
     else
       gather_requests = Request.all
