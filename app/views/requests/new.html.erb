@@ -6,7 +6,7 @@
     <%= f.input :identifier %>
     <%= f.input :title %>
     <%= f.input :creator %>
-    <%= f.input :item_number %>
+    <%= f.input :item_number, hint: 'Box or volume number.  Leave as one if the field is not applicable.' %>
     <br />
     <%= f.submit "Request", class: 'btn btn-primary' %>
   <% end %>
