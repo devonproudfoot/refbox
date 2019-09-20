@@ -19,10 +19,12 @@ class Staff::RequestsController < ApplicationController
   def update
     current_request.update_attributes(request_params)
     return render_not_found if current_request.blank?
-    redirect_to current_request 
-    flash[:notice] = "Update completed!"
-
-    #need to validate updates!
+    if current_request.valid?
+      redirect_to current_request 
+      flash[:notice] = "Update completed!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
 end

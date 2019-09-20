@@ -5,7 +5,7 @@ class Request < ApplicationRecord
   belongs_to :user
 
   validates :identifier, presence: true
-  validates :item_number, presence: true
+  validates :item_number, :numericality => { greater_than: 0 }
 
   def self.export_requests(parameter=nil)
     header = ['request_id', 'spco_id', 'title', 'item_number', 'user_id']
