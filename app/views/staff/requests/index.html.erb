@@ -1,4 +1,20 @@
 <br />
+
+<%= form_with(url: staff_requests_path, method: "get", class: 'col-10 offset-1', local: true) do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+
+  <%= radio_button_tag(:search_type, "identifier") %>
+  <%= label_tag(:search_type_identifier, "Identifier") %>
+  <%= radio_button_tag(:search_type, "creator") %>
+  <%= label_tag(:search_type_creator, "Creator") %>
+  <%= radio_button_tag(:search_type, "title") %>
+  <%= label_tag(:search_type_title, "Title") %>
+  <%= submit_tag("Search", class: 'btn btn-primary') %>
+<% end %>
+
+<br />
+
 <div class="row">
   <div class="col-10 offset-1">
     <% @requests.each do |request| %>

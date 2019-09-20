@@ -4,11 +4,16 @@ class Staff::RequestsController < ApplicationController
   helper_method :current_request
 
   def index
-    @requests = Request.all.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+    logger.info params[:q]
+    if params[:q]
+      @requests = Request.where({params[:search_type] => params[:q]}).paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+    else
+      @requests = Request.all.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
+    end
 
     respond_to do |format|
       format.html
-      format.csv { send_data @requests.export_requests, filename: "completed_requests-#{Date.today.strftime('%Y%d%m')}.csv"}
+      #format.csv { send_data @requests.export_requests, filename: "completed_requests-#{Date.today.strftime('%Y%d%m')}.csv"}
     end
   end
 
