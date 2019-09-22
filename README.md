@@ -1,6 +1,6 @@
 # RefBox
 
-## _A tool for managing patron requests for archives and special collections_
+**_A tool for managing patron requests for archives and special collections_**
 
 [View project](refbox.herokuapp.com)
 
