@@ -1,24 +1,7 @@
-# README
+# RefBox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## _A tool for managing patron requests for archives and special collections_
 
-Things you may want to cover:
+[View project](refbox.herokuapp.com)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Refbox is a Ruby on Rails application that allows researchers to submit and track requests for the use of archival material.  Staff accounts are then able to view and update request statuses, view researcher accounts, and export data.  New features are actively being added.
