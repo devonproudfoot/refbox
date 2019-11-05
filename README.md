@@ -6,7 +6,11 @@
 
 ## Running locally
 
-To run the application locally, ensure that your computer has Ruby version 2.5.3.  Clone the repository by running 'git clone https://github.com/devonproudfoot/refbox'.  Navigate to the folder on your computer and run 'bundle install' to install all relevant gems and 'rake db:migrate' to create the initial database.  Finally, run 'rails server -b 0.0.0.0 -p 3000' and navigate to localhost:3030 in the web browser of your choice!
+To run the application locally, ensure that your computer has Ruby version 2.5.3.  Run the following commands to clone the repository, download all necessary gems, and create the database.
+`git clone https://github.com/devonproudfoot/refbox`
+`bundle install`
+`rake db:migrate` 
+Finally, run 'rails server -b 0.0.0.0 -p 3000' and navigate to localhost:3030 in the web browser of your choice!
 
 ## Overview
 
